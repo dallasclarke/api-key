@@ -16,12 +16,13 @@
 // // News API - https://newsapi.org/
 // // Harvard Art Museum API - https://www.harvardartmuseums.org/collections/api
 
-
 // If you want to make your project a little more robust and dynamic you could use tools like the ones below:
 // Read the docs to see how it works. Not hard.
-
 
 // Readline: https://nodejs.org/api/readline.html
 // OR
 // Inquirer: https://www.npmjs.com/package/inquirer
 // Read the docs to find out how to use. Pretty intuitive.
+
+const fetch = require('node-fetch');
+
