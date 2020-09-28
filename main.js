@@ -25,12 +25,14 @@
 // Read the docs to find out how to use. Pretty intuitive.
 
 const fetch = require('node-fetch');
-const argv = require('yargs').argv;
 const keys = require('./key.js');
+// const argv = require('yargs').argv;
+// const inquirer = require('inquirer');
 // console.log(keys)
+const city = process.argv[2] 
 
-const city = argv.c || 'New York'
 const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${keys}`
+
 
 fetch(url)
 .then((data) => data.json())
@@ -44,8 +46,11 @@ fetch(url)
     } = newData;
     console.log(`The current temperature ${temp} F & feels like ${feels_like} F`);
     console.log(`Weather Description: ${description}`);
+    console.log(`Humidity: ${humidity}%`);
     console.log(`Wind: ${speed} MPH`);
-    console.log(`${name}, ${country}`)
+    console.log(`${name}, ${country}`);
 })
-.catch((err) => console.log('Please enter your city & country! Ex. Houston, US/ Seattle, US'))
+.catch((err) => console.log('Please enter your city!'))
+
+
 
