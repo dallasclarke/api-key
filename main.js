@@ -29,9 +29,9 @@ const keys = require('./key.js');
 // const argv = require('yargs').argv;
 // const inquirer = require('inquirer');
 // console.log(keys)
-const city = process.argv[2] 
-
+const city = process.argv.slice(2).join(' ');
 const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${keys}`
+
 
 
 fetch(url)
