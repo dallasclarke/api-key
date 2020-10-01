@@ -42,13 +42,24 @@ fetch(url)
         sys:{country},
         name
     } = newData;
-    
-    console.log(`The current temperature is ${temp} & feels like ${feels_like}.
-    Description: ${description}
-    Humidity: ${humidity}
-    Wind: ${speed}
-    Location: ${name}, ${country}
-    `);
+
+    const dataTable = 
+        [
+            {   Temperature: temp, 
+                FeelsLike: feels_like, 
+                Humidity: humidity, 
+                WindSpeed: speed, 
+                City: name, 
+                Country: country}
+        ]
+        console.table(dataTable);
+
+    // console.log(`The current temperature is ${temp} & feels like ${feels_like}.
+    // Description: ${description}
+    // Humidity: ${humidity}
+    // Wind: ${speed}
+    // Location: ${name}, ${country}
+    // `);
 })
 .catch((err) => console.log('Please enter your city!'))
 
