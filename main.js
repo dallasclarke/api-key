@@ -26,12 +26,10 @@
 
 const fetch = require('node-fetch');
 const keys = require('./key.js');
-// const argv = require('yargs').argv;
-// const inquirer = require('inquirer');
-// console.log(keys)
-const city = process.argv.slice(2).join(' ');
-const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${keys}`
+// const {table} = require('table');
 
+const city = process.argv.slice(2).join(' ');
+const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${keys}`;
 
 
 fetch(url)
@@ -44,11 +42,13 @@ fetch(url)
         sys:{country},
         name
     } = newData;
-    console.log(`The current temperature ${temp} F & feels like ${feels_like} F`);
-    console.log(`Weather Description: ${description}`);
-    console.log(`Humidity: ${humidity}%`);
-    console.log(`Wind: ${speed} MPH`);
-    console.log(`${name}, ${country}`);
+    
+    console.log(`The current temperature is ${temp} & feels like ${feels_like}.
+    Description: ${description}
+    Humidity: ${humidity}
+    Wind: ${speed}
+    Location: ${name}, ${country}
+    `);
 })
 .catch((err) => console.log('Please enter your city!'))
 
